@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdjaop2tb1rg5"]
+
+[ext_resource type="Texture2D" uid="uid://dihcql7y05ns7" path="res://Asset/Tilemap/oak_woods_v1.0/decorations/rock_3.png" id="1_wtlnw"]
+
+[node name="Rock3" type="Area2D" groups=["obs"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_wtlnw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-2, 2)
+scale = Vector2(5, 5)
+polygon = PackedVector2Array(22.6, -3.4, 23, 9, -19.8, 9.2, -19.4, 3.2, 2.2, -9, 15.5, -9)
