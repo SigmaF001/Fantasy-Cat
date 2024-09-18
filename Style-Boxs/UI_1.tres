@@ -1,0 +1,6 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dks36vmnsfofm"]
+
+[ext_resource type="Texture2D" uid="uid://cs1naalqp1ykv" path="res://Asset/UI/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Button02a_2.png" id="1_yfmop"]
+
+[resource]
+texture = ExtResource("1_yfmop")
