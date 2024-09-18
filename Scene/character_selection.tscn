@@ -199,8 +199,10 @@ offset_right = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 2)
+disabled = true
 texture_pressed = ExtResource("5_ibiun")
 texture_hover = ExtResource("6_0cu58")
+texture_disabled = ExtResource("6_0cu58")
 
 [node name="Cat2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -229,6 +231,7 @@ grow_vertical = 2
 scale = Vector2(3, 2)
 texture_pressed = ExtResource("5_ibiun")
 texture_hover = ExtResource("6_0cu58")
+texture_disabled = ExtResource("6_0cu58")
 
 [node name="Price" type="Label" parent="VBoxContainer/HBoxContainer/Cat2"]
 layout_mode = 1
@@ -273,6 +276,7 @@ grow_vertical = 2
 scale = Vector2(3, 2)
 texture_pressed = ExtResource("5_ibiun")
 texture_hover = ExtResource("6_0cu58")
+texture_disabled = ExtResource("6_0cu58")
 
 [node name="Price" type="Label" parent="VBoxContainer/HBoxContainer/Cat3"]
 layout_mode = 1

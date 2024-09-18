@@ -2,6 +2,7 @@ extends Control
 
 var save_path = "user://savefile.save"
 
+@onready var image_focused = preload("res://Asset/UI/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Select01a_1.png")
 @onready var select_sound = $SelectSound
 @onready var display_coin : Label = $ShowCoin/Container/Coin
 @onready var purchase_sound : AudioStreamPlayer = $PurchaseSound
@@ -28,6 +29,13 @@ func _ready():
 func _process(delta):
 	display_coin.text = "Coin : " + str(GlobalData.coin)
 	pocket_coin = GlobalData.coin
+	
+	if (GlobalData.character_name != "orange_0"):
+		$VBoxContainer/HBoxContainer/Cat1/Orange0Button.disabled = false
+	if (GlobalData.character_name != "black_0"):
+		$VBoxContainer/HBoxContainer/Cat2/Black0Button.disabled = false
+	if (GlobalData.character_name != "white_0"):
+		$VBoxContainer/HBoxContainer/Cat3/White0Button.disabled = false
 
 func check_store():
 	if (GlobalData.cat_2 == true):
@@ -37,6 +45,7 @@ func check_store():
 
 func _on_orange_0_button_pressed():
 	GlobalData.character_name = "orange_0"
+	$VBoxContainer/HBoxContainer/Cat1/Orange0Button.disabled = true
 	select_sound.play()
 	save()
 
@@ -52,6 +61,7 @@ func _on_black_0_button_pressed():
 			pass
 	else:
 			GlobalData.character_name = "black_0"
+			$VBoxContainer/HBoxContainer/Cat2/Black0Button.disabled = true
 			select_sound.play()
 	save()
 
@@ -66,9 +76,10 @@ func _on_white_0_button_pressed():
 			pass
 	else:
 			GlobalData.character_name = "white_0"
+			$VBoxContainer/HBoxContainer/Cat3/White0Button.disabled = true
 			select_sound.play()
 	save()
-
+		
 func _on_button_pressed():
 	get_tree().change_scene_to_file("res://Scene/main_menu.tscn")
 
@@ -78,10 +89,10 @@ func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(stored_high_score)
 	file.store_var(hight_coins)
-	file.store_var(GlobalData.coin)
-	file.store_var(GlobalData.character_name)
-	file.store_var(GlobalData.cat_2)
-	file.store_var(GlobalData.cat_3)
+	file.store_var(pocket_coin)
+	file.store_var(character_name)
+	file.store_var(cat_2)
+	file.store_var(cat_3)
 	print("Save data.")
 
 func load_data():
@@ -92,10 +103,8 @@ func load_data():
 		pocket_coin = file.get_var(pocket_coin)
 		character_name = file.get_line()
 		cat_2 = file.eof_reached()
-		GlobalData.cat_2 = cat_2
 		print("cat 2 : " + str(cat_2))
 		cat_3 = file.eof_reached()
-		GlobalData.cat_3 = cat_3
 		print("Load data.")
 	else:
 		print("No data save")

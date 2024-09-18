@@ -221,10 +221,10 @@ func save():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(stored_high_score)
 	file.store_var(hight_coins)
-	file.store_var(GlobalData.coin)
-	file.store_var(GlobalData.character_name)
-	file.store_var(GlobalData.cat_2)
-	file.store_var(GlobalData.cat_3)
+	file.store_var(pocket_coin)
+	file.store_var(character_name)
+	file.store_var(cat_2)
+	file.store_var(cat_3)
 	print("Save data.")
 
 func load_data():
@@ -236,6 +236,7 @@ func load_data():
 		character_name = file.get_line()
 		cat_2 = file.eof_reached()
 		cat_3 = file.eof_reached()
+		GlobalData.character_name = character_name
 		print("Load data.")
 	else:
 		print("No data save")
